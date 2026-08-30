@@ -13,7 +13,7 @@ special: special-vim
 install-claude:
 	@echo ">>> $@: Installing CLAUDE.md ..."
 	-mkdir #{HOME}/.claude/
-	cp ${PWD}/CLAUDE.md ${HOME}/.claude/
+	cp ${PWD}/config/CLAUDE.md ${HOME}/.claude/
 	@echo -e "=== $@: Done!\n"
 
 # install .tmux.conf
@@ -26,6 +26,12 @@ install-tmux:
 install-vim:
 	@echo ">>> $@: Installing .vimrc ..."
 	cp ${PWD}/conf/.vimrc ${HOME}/.vimrc
+	@echo -e "=== $@: Done!\n"
+
+# save CLAUDE.md
+save-claude:
+	@echo ">>> $@: Saving CLAUDE.md to dotfiles repo ..."
+	cp ${HOME}/.claude/CLAUDE.md ${PWD}/conf/CLAUDE.md
 	@echo -e "=== $@: Done!\n"
 
 # save .tmux.conf

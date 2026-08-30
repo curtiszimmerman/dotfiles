@@ -13,11 +13,11 @@ Do these computer things on your computer:
 ```sh
 git clone https://github.com/curtiszimmerman/dotfiles ~/
 cd ~/dotfiles
-make install
+make all
 ```
 
-Also, just about every `Makefile` is cryptic and awful, but you wouldn't `curl -sSL https://example.com/free_porn.sh | sh` without looking at `free_porn.sh` first, would you? *Would you?!*
+Also, just about every `Makefile` is cryptic and awful, but you wouldn't `curl -sSL https://example.com/free_porn.sh | sh` without looking at `free_porn.sh` first, would you? *Would you?!* Just `make` for special sauce.
 
-## License
+## License (really?)
 
 GPLv3
