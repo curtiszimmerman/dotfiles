@@ -5,8 +5,8 @@ SHELL=/bin/bash
 DOTFILES=${PWD}
 VERSION=1.0
 
-all: install
-install: install-tmux install-vim special
+all: install-tmux install-vim special
+install: usage
 save: save-tmux save-vim
 special: special-vim
 
@@ -37,7 +37,21 @@ save-vim:
 # this .vimrc uses custom directories: create them
 special-vim:
 	@echo ">>> $@: Running extra special steps for vim ..."
-	mkdir -p ${HOME}/.vim/backup
-	mkdir ${HOME}/.vim/tmp
+	-mkdir -p ${HOME}/.vim/backup
+	-mkdir ${HOME}/.vim/tmp
 	@echo -e "=== $@: Done!\n"
 
+usage:
+	@echo "Install dotfiles to their proper places:"
+	@echo ""
+	@echo " make all           Copy all dotfiles to their places"
+	@echo   "                   = install-tmux install-vim special"
+	@echo ""
+	@echo " make install       This help message"
+	@echo ""
+	@echo " make install-tmux  Copy tmux config to ~/conf/tmux.conf"
+	@echo ""
+	@echo " make install-vim   Copy vim config to ~/.vimrc"
+	@echo ""
+	@echo " make special-vim   Create ~/.vim/backup and ~/.vim/tmp"
+	@echo ""
