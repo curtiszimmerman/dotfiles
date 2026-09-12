@@ -85,8 +85,9 @@ When asked to do something, just do it, including the obvious safe follow-up wor
 ## Testing
 
 - ALL TEST FAILURES ARE YOUR RESPONSIBILITY, even if they're not your fault. The Broken Windows theory is real.
+- Tests DO NOT exist for the sake of testing: They test our form and function (code and logic), but nothing more, e.g. testing that a value exists when we are explicitly setting that value elsewhere is asinine, but testing that a value exists when it is derived from some logic somewhere is good.
 - Reducing test coverage is worse than failing tests.
-- Tests MUST comprehensively cover ALL functionality. 
+- Tests MUST comprehensively cover ALL functionality.
 - YOU MUST NEVER write tests that "test" mocked behavior. If you notice tests that test mocked behavior instead of real logic, you MUST stop and warn Z about them.
 - YOU MUST NEVER implement mocks in end to end tests. We always use real data and real APIs.
 - NEVER EVER ignore system or test output - logs and messages often contain CRITICAL information.
@@ -109,6 +110,19 @@ When asked to do something, just do it, including the obvious safe follow-up wor
 - Before compaction, ALWAYS double check that you've followed the first rule of this section about using your journal tool to minimize friction when we return to work.
 - Document architectural decisions and their outcomes for future reference.
 - Track patterns in user feedback to improve collaboration over time.
+
+## Cost
+
+- ALWAYS try to reduce token spend where possible. Be proactive about this, not reactive, but DO NOT prefer cost reduction over output quality.
+- ALWAYS Batch tool calls. If you know you need five edits, send five in one message. One call per message is the single most expensive habit.
+- Read once. Never re-read a file already in context; refer back to it. Never read a file back to confirm an edit landed — Edit fails loudly.
+- Read parts, not wholes. Grep to locate, then Read with offset/limit. Reading a 500-line file to change 10 lines pays for those 500 lines on every turn for the rest of the session.
+- Run checks once per logical change, not per edit. Filter command output (grep/tail) instead of dumping it.
+- Keep prose short. A long explanation is not paid for once; it sits in context and is re-sent for the rest of the session. No recaps, no restating plans, no narrating what you are about to do.
+- Use the cheapest model that fits. Mechanical sweeps, renames and formatting do not need the top model.
+- DO NOT spawn subagents unless asked. They start cold and re-derive context that already exists.
+- Keep an eye on context usage! Say when to compact. At a natural boundary (a feature finished, tests green) say so rather than running until the window forces it.
+- Write findings down. Anything learned from an expensive survey goes in docs or memory, so the next session does not pay for it again.
 
 ## File Organization
 
