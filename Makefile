@@ -1,11 +1,16 @@
 ## Makefile
+.PHONY=all usage
+.PHONY=install install-all install-claude install-tmux install-vim
+.PHONY=save save-claude save-tmux save-vim
+.PHONY=special special-vim
 SHELL=/bin/bash
 
 # Config options
 VERSION=1.0
 
-all: install-claude install-tmux install-vim special
+all: usage
 install: usage
+install-all: install-claude install-tmux install-vim special
 save: save-tmux save-vim
 special: special-vim
 
@@ -56,10 +61,10 @@ special-vim:
 usage:
 	@echo "Install dotfiles to their proper places:"
 	@echo ""
-	@echo " make all              Copy all dotfiles to their places"
-	@echo   "                      = install-claude install-tmux install-vim special"
+	@echo " make all install      This help message"
 	@echo ""
-	@echo " make install          This help message"
+	@echo " make install-all      Copy all dotfiles to their places"
+	@echo "                         = install-claude install-tmux install-vim special"
 	@echo ""
 	@echo " make install-claude   Copy Claude config to ~/.claude/CLAUDE.md"
 	@echo ""
